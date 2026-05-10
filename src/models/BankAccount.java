@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package models;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Mahmoud Samy
- */
+
 public abstract class BankAccount {
     
     //the attributes:
@@ -18,6 +12,7 @@ public abstract class BankAccount {
     protected double balance;
     
     protected ArrayList<Transaction> transactions=new ArrayList<>(); 
+    
     
     //Constructor:
     public BankAccount(String accountNumber,String ownerName,double balance)
@@ -52,14 +47,15 @@ public abstract class BankAccount {
     //Deposit Method:
     public void deposit(double amountDeposited)
     {
-        
+        //Validation:       
         if (amountDeposited > 0) 
         {
             balance += amountDeposited;
+            transactions.add(new Transaction("Deposit", amountDeposited));
         } 
         else
         {
-            System.out.println("Invalid Deposit Amount");
+            System.out.println("Invalid Deposit Amount");           
         }
         
     }
@@ -68,13 +64,15 @@ public abstract class BankAccount {
     //Withdraw Mehod:
     public void withdraw(double amountwithdrawn)
     {
-        if (amountwithdrawn < 0)
+        //Validation:
+        if (amountwithdrawn <= 0)
         {
             System.out.println("Invalid Withdraw Amount");
         } 
         else if (amountwithdrawn <= balance)
         {
             balance -= amountwithdrawn;
+            transactions.add(new Transaction("Withdraw", amountwithdrawn));
         } 
         else 
         {
@@ -84,10 +82,8 @@ public abstract class BankAccount {
     }
     
     
-    
-    
-    //abstract Method:
+    //abstract Methods:
     public abstract void applyMonthlyUpdate();
-    
+    public abstract void generateStatement();
   
 }
