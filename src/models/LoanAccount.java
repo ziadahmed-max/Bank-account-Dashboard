@@ -54,8 +54,10 @@ public abstract class LoanAccount extends BankAccount {
         transactions.add(new Transaction("Monthly Payment", payment));
         transactions.add(new Transaction("Interest Charge", interestCharge));
 
-        System.out.printf("Month %d | Payment: %.2f | Interest: %.2f | Remaining: %.2f%n",
-                monthsPaid, payment, interestCharge, balance);
+      System.out.println("Month " + monthsPaid + 
+                   " | Payment: " + payment + 
+                   " | Interest: " + interestCharge + 
+                   " | Remaining: " + balance);
     }
 
     // بيطبع كل الـ transactions
@@ -64,8 +66,8 @@ public abstract class LoanAccount extends BankAccount {
         System.out.println("-----Loan Statement------");
         System.out.println("Account  : " + accountNumber);
         System.out.println("Owner    : " + ownerName);
-        System.out.printf ("Balance  : %.2f%n", balance);
-        System.out.printf ("Rate     : %.1f%%%n", interestRate * 100);
+        System.out.println("Balance  : " + balance);
+        System.out.println("Rate     : " + (interestRate * 100) + "%");   
         System.out.println("Term     : " + termMonths + " months");
         System.out.println("Paid     : " + monthsPaid + " months");
         System.out.println("------------------------------");

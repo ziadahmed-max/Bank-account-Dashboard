@@ -1,23 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package interfaces;
 
-import models.BankAccount;
-import models.Transaction;
+package models;
+
+import interfaces.Auditable;
+import interfaces.Printable;
 
 /**
  *
  * @author HP VICTUS
  */
-public class checkingAccount extends BankAccount implements Auditable,Printable {
+public class CheckingAccount extends BankAccount implements Auditable,Printable {
    
     
   private double overdraftLimit ;
   
   
-  public checkingAccount(String accountNumber , String ownerName , double balance , double overdraftLimit){
+  public CheckingAccount(String accountNumber , String ownerName , double balance , double overdraftLimit){
       
   super( accountNumber , ownerName , balance);
   
@@ -98,7 +95,7 @@ public class checkingAccount extends BankAccount implements Auditable,Printable 
 
        public void printDetails(){
        
-       System.out.println(" ==== Savings Account ====");
+       System.out.println(" ==== Checking Account ====");
        System.out.println(" Account Number :" + accountNumber);
        System.out.println("Owner : "+ ownerName);
        System.out.println("Balance : "+ balance);
